@@ -1,0 +1,74 @@
+
+<nav class="navbar shadow navbar-expand-md navbar-light bg-white">
+  <div class="container-fluid align-items-center">
+    <!-- Logo on the left -->
+    <a class="col-3 eventat" routerLink="/home">
+      Eventat
+    </a>
+    <!-- Burger button for smaller screens -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar content -->
+    <div class="collapse navbar-collapse col-9 justify-content-between" id="navbarNav" #navbarNav>
+      <!-- Centered links -->
+      <ul
+        class="navbar-nav mx-auto col-12 col-md-6 justify-content-center"
+      ></ul>
+      <!-- Language button on the right -->
+      <ul class="navbar-nav ms-auto col-12 col-md-6 justify-content-end">
+        <ng-container>
+          <li class="nav-item" routerLink="/home">
+            <a
+              class="text-decoration-none nav-link"
+              routerLink="/home"
+              routerLinkActive="active"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item" routerLink="/newEvent">
+            <a
+              class="text-decoration-none nav-link"
+              routerLink="/newEvent"
+              routerLinkActive="active"
+              >New Event</a
+            >
+          </li>
+          @if (tokenExists) {
+          <li class="nav-item" routerLink="/profile">
+            <a
+              class="text-decoration-none nav-link"
+              routerLink="/profile"
+              routerLinkActive="active"
+              >Profile</a
+            >
+          </li>
+          } @else {
+          <li class="nav-item" routerLink="/login">
+            <a
+              class="text-decoration-none nav-link"
+              routerLink="/login"
+              routerLinkActive="active"
+              >Log in</a
+            >
+          </li>
+          }
+        </ng-container>
+
+        @if (tokenExists) {
+        <li class="nav-item" routerLink="/home" (click)="logout()">
+          <a class="text-decoration-none nav-link">Log out</a>
+        </li>
+      }
+
+      </ul>
+    </div>
+  </div>
+</nav>

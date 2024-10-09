@@ -1,0 +1,11 @@
+
+.scan{
+  padding: 0px 20px;
+  border: 0;
+  border-radius: 3px;
+  background-color: blue;
+  color: white;
+}
+.scan:hover{
+  background-color: rgb(173, 240, 106);
+}

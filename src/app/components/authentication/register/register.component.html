@@ -1,0 +1,135 @@
+@if (contentReady) { <app-loading></app-loading> }
+<div class="container mb-4">
+  <div class="w-100">
+    <div class="mt-4">
+      <h1 class="text-center">You will be Happy whit Us</h1>
+      <hr class="line" width="100%" size="3" noshade />
+
+      <form class="from" [formGroup]="formInfo" (ngSubmit)="onSubmit()">
+        <div class="d-flex flex-column flex-sm-row gap-2">
+          <div class="form-group col-12 col-sm-6">
+            <input
+              class="input"
+              type="text"
+              id="Name"
+              formControlName="name"
+              placeholder="Name"
+            />
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <input
+              class="input"
+              type="email"
+              id="Email"
+              (ngModelChange)="saveEmail($event)"
+              formControlName="email"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+        <div class="d-flex flex-column flex-sm-row gap-2">
+          <div class="form-group col-12 col-sm-6">
+            <input
+              class="input"
+              type="text"
+              id="phone"
+              formControlName="phone"
+              placeholder=" phone "
+            />
+          </div>
+
+          <div class="form-group col-sm-6 col-12">
+            <input
+              class="input"
+              id="Password"
+              type="{{ isPasswordVisible ? 'text' : 'password' }}"
+              formControlName="password"
+              placeholder="Password"
+            />
+            <button
+              type="button"
+              class="hidePasswordBtn"
+              (click)="togglePasswordVisibility()"
+            >
+              @if(!isPasswordVisible){ Show Password } @else { Hide Password }
+            </button>
+          </div>
+        </div>
+        <div class="d-flex flex-column flex-sm-row gap-2">
+          <div class="form-group m-0 col-12 col-sm-6">
+            <input
+              class="input"
+              id="c_Password"
+              type="{{ isPasswordVisible ? 'text' : 'password' }}"
+              formControlName="c_Password"
+              placeholder=" Confirm Password "
+            />
+            <button
+              type="button"
+              class="hidePasswordBtn"
+              (click)="togglePasswordVisibility()"
+            >
+              @if(!isPasswordVisible){ Show Password } @else { Hide Password }
+            </button>
+          </div>
+          <div class="form-group col-12 col-sm-6" style="padding-left: 19px">
+            <div class="d-flex gap-4">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="gender"
+                  id="flexRadioDefault1"
+                  value="male"
+                />
+                <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                  Male
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="gender"
+                  id="flexRadioDefault2"
+                  value="female"
+                />
+                <label class="form-check-label fw-bold" for="flexRadioDefault2">
+                  Female
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="line" width="100%" size="3" noshade />
+
+        <button
+          type="submit"
+          class="submit-btn accont btn btn-primary"
+          [disabled]="formInfo.invalid"
+        >
+          Registering
+        </button>
+        <div class="rigisterLinkContainer">
+          <!-- <span> askforacc </span> -->
+          <a
+            class="text-decoration-none"
+            routerLink="/login"
+            style="cursor: pointer"
+          >
+            Log in
+          </a>
+        </div>
+        <!-- <button type="button" class="formsave login" id="google-btn">
+          <img src="../../../../assets/search.png" alt="" class="socialImg" />
+          <a class="text-decoration-none"> ContinuewithGoogle </a>
+        </button>
+        <button type="button" class="formsave login" (click)="login()">
+          <img src="../../../../assets/facebook.png" alt="" class="socialImg" />
+          <a class="text-decoration-none"> ContinuewithFacebook </a>
+        </button> -->
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+
+.info {
+  color: #110D0D !important;
+  font-size: 14px;
+  z-index: 20;
+  top: 5px;
+  right: 11px;
+  position: absolute;
+  background-color: #feffff;
+}
+
+/* h1,label{
+  color: white;
+} */
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-top: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.accont {
+  font-weight: bold;
+  background-color: rgb(16, 177, 123);
+
+}

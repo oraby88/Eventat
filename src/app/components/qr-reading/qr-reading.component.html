@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <h1 class="text-center">QR Images</h1>
+  <div class="row gap-3 text-center justify-content-center">
+    @for (qr of qrData; track qr) {
+    <div class="card col-3 gap-3 p-2">
+      <div class="card-body p-2 text-center">
+        <img src="{{qr}}" alt="" class="" style="width: 70px;height: 70px;">
+      </div>
+      <button (click)="getIamge(qr)" class="btn btn-primary">Download</button>
+    </div>
+    }
+  </div>
+</div>

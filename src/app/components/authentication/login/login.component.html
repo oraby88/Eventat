@@ -1,0 +1,57 @@
+@if(contentReady){ <app-loading></app-loading>}
+<div class="container mb-4">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-lg-5 col-md-8 col-sm-12">
+      <h1 class="logintext">Log in</h1>
+      <form class="form" [formGroup]="person" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label class="label" for="Email"> Email </label>
+          <input
+            class="input"
+            type="text"
+            id="Email"
+            formControlName="email"
+            placeholder="Email"
+          />
+        </div>
+        <div class="form-group">
+          <label class="label" for="Password">Password </label>
+          <input
+            class="input"
+            id="Password"
+            type="{{ isPasswordVisible ? 'text' : 'password' }}"
+            formControlName="password"
+            placeholder="Password"
+          />
+          <button
+            type="button"
+            class="hidePasswordBtn"
+            (click)="togglePasswordVisibility()"
+          >
+            @if(!isPasswordVisible){ Show Password } @else { Hide Password }
+          </button>
+        </div>
+
+        <h6 class="passtext">
+          <a routerLink="/forget-password">Forget password</a>
+        </h6>
+
+        <hr class="line" width="100%" size="3" noshade />
+        <button type="submit" class="submit-btn login">Log in</button>
+        <!-- <div class="rigisterLinkContainer">
+          <a class="text-decoration-none" routerLink="/register" style="cursor: pointer;"
+            >Registering
+          </a>
+        </div>
+        <button type="button" class="fromsave accont" id="google-btn">
+          <img src="../../../../assets/search.png" alt="" class="socialImg" />
+          <a class="text-decoration-none">ContinuewithGoogle</a>
+        </button>
+        <button type="button" class="fromsave accont" (click)="login()">
+          <img src="../../../../assets/facebook.png" alt="facebook" class="socialImg" />
+          <a class="text-decoration-none"> ContinuewithFacebook</a>
+        </button> -->
+      </form>
+    </div>
+  </div>
+</div>

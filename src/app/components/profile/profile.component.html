@@ -1,0 +1,24 @@
+@if (contentReady) { <app-loading></app-loading>}
+<div class="container mt-4" style="margin-bottom: 10px;">
+  <div class="text-center">
+    <h3>Welcome {{ name }}</h3>
+    <h3>Email: {{ email }}</h3>
+  </div>
+
+  <div>
+    <div class="container mt-4">
+      <h1 class="text-center">QR List</h1>
+      <div class="row gap-3 text-center justify-content-center">
+        @for (qr of qrData; track qr) {
+        <div class="card col-3 gap-3 p-2">
+          <div class="card-body p-2 text-center">
+            <img src="{{qr.qrcode_url}}" alt="" class="" style="width: 70px;height: 70px;">
+          </div>
+          <button (click)="getIamge(qr)" class="btn btn-primary">Download</button>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+
+</div>

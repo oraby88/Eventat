@@ -1,0 +1,150 @@
+*{
+  box-sizing: border-box;
+
+}
+.imgtext {
+  color: #262f95;
+  font-family: cursive;
+}
+
+.textlanguage {
+  font-size: 20px;
+  font-weight: bold;
+  color: #262f95;
+  margin-top: 15px;
+}
+
+.logintext {
+  font-weight: bold;
+}
+.card-img{
+  width: 150px;
+}
+
+.passtext {
+  font-weight: bold;
+  font-size: 13px;
+  color: #d91623;
+}
+.from {
+  /* margin-top: 50px; */
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+
+}
+
+h1 {
+  text-align: center;
+  /* margin-bottom: 20px; */
+  margin-top: 5px;
+  color: #262f95;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dfdfdf;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.input::placeholder {
+  color: #00000080 50%;
+
+}
+
+button {
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.accont {
+  font-weight: bold;
+  /* background-color: rgb(16, 177, 123); */
+}
+
+.login {
+  font-weight: 500;
+  background-color: #fff;
+  border: 1px solid rgb(192, 191, 191);
+  color: #108c45;
+
+}
+.login a {
+  color: black;
+}
+.submit-btn{
+  display: flex;
+  width: 100%;
+  margin-top: 3px;
+  margin-bottom: 6px;
+  font-size: 16px;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+}
+.formsave {
+  display: flex;
+  width: 100%;
+  margin-top: 3px;
+  font-size: 18px;
+  border-radius: 7px;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+}
+.rigisterLinkContainer{
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 500;
+}
+.rigisterLinkContainer a{
+  color: blue;
+}
+.info {
+  top: 10px;
+  position: absolute;
+  left: 20px;
+}
+
+.is-invalid {
+  outline: 1px solid red;
+}
+.is-valid:focus {
+  outline: 1px solid blue;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.hidePasswordBtn{
+  background-color: transparent;
+  border: 0;
+  color: blue;
+  float: inline-end;
+  font-weight: 500;
+  padding: 0;
+}
+
+

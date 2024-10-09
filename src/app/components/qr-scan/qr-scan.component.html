@@ -1,0 +1,140 @@
+@if (tokenExists) {
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Event's QR Codes</h1>
+  <!-- <form
+      action=""
+      class="form"
+      [formGroup]="eventForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="form-group mb-2">
+        
+        <input
+          type="text"
+          id="eventNameEn"
+          placeholder="Enter Event Name in English"
+          class="form-control input"
+          formControlName="name_en"
+        />
+      </div>
+      <div class="form-group mb-2">
+        
+        <input
+          type="text"
+          id="eventNameAr"
+          class="form-control input"
+          placeholder="Enter Event Name in Arabic"
+          formControlName="name_ar"
+        />
+      </div>
+      <div class="form-group mb-2">
+        
+        <input
+          type="date"
+          id="eventDate"
+          class="form-control input"
+          formControlName="date"
+        />
+      </div>
+      <div class="form-group mb-2">
+        
+        <input
+          type="text"
+          id="eventLocation"
+          placeholder="Enter Event Location"
+          class="form-control input"
+          formControlName="location"
+        />
+      </div>
+      <div class="form-group mb-2" style="margin-top: 20px;">
+        <label for="multiUse" style="padding-right: 20px;">Multi Use:</label>
+        <input
+          type="checkbox"
+          id="multiUse"
+          class="form-check-input"
+          formControlName="multiUse"
+        />
+      </div>
+      <div class="form-group mb-2">
+        
+        <input
+          type="number"
+          id="count"
+          placeholder="Enter The Number of attendance"
+          class="form-control input"
+          formControlName="qr_image_count"
+        />
+      </div>
+      <div class="form-group mb-2">
+        
+        <input
+          type="time"
+          id="time"
+          class="form-control input"
+          formControlName="time"
+        />
+      </div>
+      <div class="form-group mb-2">
+        
+        <select
+          formControlName="type"
+          placeholder="Enter The Ticket Type"
+          class="form-control input"
+          containerClass=""
+          id="ticket"
+        >
+          @for (item of ticketsType; track item) {
+          <option [value]="item" class="p-2">{{ item }} </option>}
+        </select>
+      </div>
+        <button type="submit" [disabled]="!eventForm.valid" class="btn w-100 accont" style="margin-top: 10px;">Submit</button>
+    </form> -->
+  <div class="row cardsContainer justify-content-center">
+    @if (qrCodes) {
+    @for (qr of displayedItems; track qr) {
+    <div class="col-6 col-sm-4 col-lg-3">
+      <div class="d-flex flex-column">
+        <img [src]="qr" alt="qr code" class="scanImg" />
+        <button type="button" class="scanBtn" (click)="startScan()">
+          Scan
+        </button>
+        <!-- Scanner component to scan the QR code -->
+        @if (scannerEnabled) {
+        <zxing-scanner
+          (scanSuccess)="handleQrCodeResult($event)"
+        ></zxing-scanner
+        >} @if (qrResult) {
+        <p>{{ qrResult }}</p>
+        }
+      </div>
+    </div>
+    
+    }}
+  </div>
+  <mat-paginator [length]="allItems.length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="[5, 10, 15, 20]"
+              [showFirstLastButtons]="true"
+              [pageIndex]="currentPage"
+              (page)="handlePageEvent($event)"
+              aria-label="Select page">
+    </mat-paginator>
+</div>
+
+} @else {
+<div class="container mt-4">
+  <h1 class="text-center">Event Info</h1>
+  <div>
+    <p>Event Name: {{ name }}</p>
+    <p>Location: {{ location }}</p>
+    <p>Date: {{ date }}</p>
+    <p>Ticket Type: {{ type }}</p>
+    <p>Time: {{ time }}</p>
+    @if (multi_use) {
+    <p>Multi Use: true</p>
+    }@else {
+    <p>Multi Use: false</p>
+    }
+  </div>
+</div>
+}

@@ -1,0 +1,167 @@
+ul,
+li {
+  margin: 0 !important;
+}
+ul {
+  display: flex;
+  gap: 20px;
+}
+
+.imgtext {
+  color: #262f95;
+}
+
+.textlanguage {
+  font-size: 14px;
+  font-weight: bold;
+  color: #262f95;
+  margin-top: 15px;
+}
+
+.meun h5 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 10px;
+  margin: 0 !important;
+}
+h5 {
+  margin: 0 !important;
+  padding: 8px;
+  color: #6bb88c;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+.nav-button {
+  width: 106%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 0;
+  border-bottom: 1px solid #c6c7c8;
+}
+
+.nav-button:hover {
+  background-color: #f0f0f0;
+}
+.card-img {
+  width: 100px !important;
+  height: 90px;
+}
+.main {
+  padding: 20px;
+}
+
+.item {
+  display: flex;
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 17px;
+  margin-top: 30px;
+  padding: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.category {
+  border-right: 1px solid #c6c7c8;
+}
+
+.item-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin-right: 70px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-info h3 {
+  font-family: math;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.item-info p {
+  font-size: 15px;
+
+  margin: 0;
+  color: #262f95;
+  line-height: 2.2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.header-button {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header-button a {
+  color: #6bb88c;
+  font-weight: 400;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 5px;
+  cursor: pointer;
+}
+.nav-item a {
+  color: #6bb88c;
+  font-weight: 400;
+  font-size: 16px;
+}
+@media screen and (max-width: 767px) {
+  .nav-item:hover {
+    background-color: rgb(221, 220, 220);
+    width: 100%;
+  }
+}
+
+.active {
+  color: #262f95 !important;
+  font-weight: bold;
+}
+.imagessize {
+  display: block !important;
+}
+.imagessize,
+.changelang {
+  height: 30px !important;
+  width: 30px !important;
+}
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
+  border: #262f95 1px solid;
+}
+
+.eventat{
+  text-decoration: none;
+  color: #6bb88c;
+}
