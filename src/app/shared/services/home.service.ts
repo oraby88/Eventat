@@ -11,7 +11,7 @@ export class HomeService {
   constructor(private http: HttpClient) { }
 
   getEventsList(): Observable<any> {
-    return this.http.get(`${environment.Server_URL}/all-events`);
+    return this.http.get(`${environment.Server_URL}/profile`);
   }
   getQR(id: any
     // location: string,
