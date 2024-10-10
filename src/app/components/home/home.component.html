@@ -17,11 +17,11 @@
         @for (qr of displayedItems; track qr) {
         <div class="d-flex col-12 gap-3 p-2">
           <div class="card-body align-content-center">
-            <h5 class="">{{ qr.name_en }}</h5>
+            <h5 class="">{{ qr.event.name_en }}</h5>
             <!-- <h5 class="card-title">{{ qr.location }}</h5> -->
             <!-- <img src="{{qr}}" alt="" class="" style="width: 70px;height: 70px;"> -->
           </div>
-          <button class="scan" (click)="goToQrCode(qr.id)">
+          <button class="scan" (click)="goToQrCode(qr.event.id)">
             Show QR Codes
           </button>
         </div>
