@@ -6,6 +6,8 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { QrScanComponent } from './components/qr-scan/qr-scan.component';
+import { QrcodescannerComponent } from './components/qrcodescanner/qrcodescanner.component';
+import { QrcodesinfoComponent } from './components/qrcodesinfo/qrcodesinfo.component';
 
 export const routes: Routes = [
   {path:'home', component: HomeComponent},
@@ -15,5 +17,7 @@ export const routes: Routes = [
   {path:'qrPage', component: QrReadingComponent},
   {path:'profile', component: ProfileComponent},
   {path:'qr-sacn/:id', component: QrScanComponent},
+  {path:'qrcodescanner', component: QrcodescannerComponent},
+  {path:'info', component: QrcodesinfoComponent},
   {path:'', redirectTo:'login', pathMatch:'full'},
 ];
