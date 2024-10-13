@@ -117,8 +117,24 @@ export class QrScanComponent implements OnInit, AfterViewInit {
   }
 
   // Enable the scanner when the scan button is clicked
-  startScan() {
-    this.scannerEnabled = true;
+  startScan(imageUrl:any) {
+    // this.scannerEnabled = true;
+
+
+    // Create a hidden anchor element
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    // Set the download attribute with a default file name
+    link.download = 'qr-image.jpg'; // You can set a specific filename
+
+    // Append the anchor to the body (required for some browsers)
+    document.body.appendChild(link);
+
+    // Programmatically click the anchor to trigger the download
+    link.click();
+
+    // Remove the anchor from the body after the download is triggered
+    document.body.removeChild(link);
   }
   // Handle the scanned QR code result
   handleQrCodeResult(result: string) {

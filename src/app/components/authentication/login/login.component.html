@@ -37,11 +37,21 @@
         </h6>
 
         <hr class="line" width="100%" size="3" noshade />
-        <button type="submit" class="submit-btn login">Log in</button>
-         <div class="rigisterLinkContainer">
-          <span>don't have an accont </span>
-          <a class="text-decoration-none" routerLink="/register" style="cursor: pointer;"
-            > Register
+        <button
+          type="submit"
+          [disabled]="!person.valid"
+          class="submit-btn login"
+        >
+          Log in
+        </button>
+        <div class="rigisterLinkContainer">
+          <span>don't have an accont? </span>
+          <a
+            class="text-decoration-none"
+            routerLink="/register"
+            style="cursor: pointer"
+          >
+            Register
           </a>
         </div>
         <!--<button type="button" class="fromsave accont" id="google-btn">

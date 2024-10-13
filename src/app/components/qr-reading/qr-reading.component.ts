@@ -19,10 +19,9 @@ export class QrReadingComponent implements OnInit {
   getIamge(imageUrl:any){
     // Create a hidden anchor element
     const link = document.createElement('a');
-    link.href = imageUrl;
-
+    link.href = URL.createObjectURL(imageUrl);
     // Set the download attribute with a default file name
-    link.download = 'downloaded-image.jpg'; // You can set a specific filename
+    link.download = 'qr-image.jpg'; // You can set a specific filename
 
     // Append the anchor to the body (required for some browsers)
     document.body.appendChild(link);

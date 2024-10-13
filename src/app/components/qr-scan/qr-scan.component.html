@@ -95,8 +95,8 @@
     <div class="col-6 col-sm-4 col-lg-3">
       <div class="d-flex flex-column">
         <img [src]="qr" alt="qr code" class="scanImg" />
-        <button type="button" class="scanBtn" (click)="startScan()">
-          Scan
+        <button type="button" class="scanBtn" (click)="startScan(qr)">
+          Download
         </button>
         <!-- Scanner component to scan the QR code -->
         @if (scannerEnabled) {

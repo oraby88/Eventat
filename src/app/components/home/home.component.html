@@ -21,22 +21,21 @@
             <!-- <h5 class="card-title">{{ qr.location }}</h5> -->
             <!-- <img src="{{qr}}" alt="" class="" style="width: 70px;height: 70px;"> -->
           </div>
-          <button
-            class="scan"
-            (click)="goToQrCode(qr.id)"
-          >
-            Scan
+          <button class="scan" (click)="goToQrCode(qr.id)">
+            Show QR Codes
           </button>
         </div>
         }
       </div>
-      <mat-paginator [length]="allItems.length"
-              [pageSize]="pageSize"
-              [pageSizeOptions]="[5, 10, 15, 20]"
-              [showFirstLastButtons]="true"
-              (page)="handlePageEvent($event)"
-              aria-label="Select page">
-    </mat-paginator>
+      <mat-paginator
+        [length]="allItems.length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="[5, 10, 15, 20]"
+        [showFirstLastButtons]="true"
+        (page)="handlePageEvent($event)"
+        aria-label="Select page"
+      >
+      </mat-paginator>
     </div>
   </div>
 </div>

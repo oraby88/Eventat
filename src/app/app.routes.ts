@@ -15,5 +15,5 @@ export const routes: Routes = [
   {path:'qrPage', component: QrReadingComponent},
   {path:'profile', component: ProfileComponent},
   {path:'qr-sacn/:id', component: QrScanComponent},
-  {path:'', redirectTo:'home', pathMatch:'full'},
+  {path:'', redirectTo:'login', pathMatch:'full'},
 ];
