@@ -6,9 +6,10 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { QrScanComponent } from './components/qr-scan/qr-scan.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  {path:'home', component: HomeComponent},
+  {path:'home', component: HomeComponent, canActivate:[authGuard]},
   {path:'newEvent', component: NewEventComponent},
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
