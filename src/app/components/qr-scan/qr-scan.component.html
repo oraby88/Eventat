@@ -1,4 +1,4 @@
-@if (tokenExists) {
+
 <div class="container mt-4">
   <h1 class="text-center mb-4">Event's QR Codes</h1>
   <!-- <form
@@ -121,20 +121,3 @@
     </mat-paginator>
 </div>
 
-} @else {
-<div class="container mt-4">
-  <h1 class="text-center">Event Info</h1>
-  <div>
-    <p>Event Name: {{ name }}</p>
-    <p>Location: {{ location }}</p>
-    <p>Date: {{ date }}</p>
-    <p>Ticket Type: {{ type }}</p>
-    <p>Time: {{ time }}</p>
-    @if (multi_use) {
-    <p>Multi Use: true</p>
-    }@else {
-    <p>Multi Use: false</p>
-    }
-  </div>
-</div>
-}

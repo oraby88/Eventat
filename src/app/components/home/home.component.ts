@@ -28,11 +28,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
   ngOnInit(): void {
     this.contentReady = true;
-    let sum = this.plusMinus([
-        [8],
-        [1, 2, 3, -1, -2, -3, 0, 0]
-      ]);
-    console.log(sum);
+    
 
     this.getData();
     if (typeof window !== 'undefined' && localStorage) {
@@ -102,27 +98,5 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getData();
   }
 
-  plusMinus(arr: any) {
-    let n = arr[0];
-    let arrNew = arr[1];
-    console.log(arrNew);
-    let positivesNum = 0;
-    let nagativesNum = 0;
-    let zerosNum = 0;
-    for (let i = 0; i < n; i++) {
-      if (arrNew[i] > 0) {
-        positivesNum += 1;
-      } else if (arrNew[i] < 0) {
-        nagativesNum += 1;
-      } else if(arrNew[i] == 0){
-        zerosNum += 1;
-      }
-    }
-    let positivesSum = (positivesNum / n).toFixed(6);
-    let nagativesSum = (nagativesNum / n).toFixed(6);
-    let zerosSum = (zerosNum / n).toFixed(6);
-
-
-    return [positivesSum, nagativesSum, zerosSum];
-  }
+  
 }
