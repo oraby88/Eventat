@@ -1,5 +1,36 @@
 h3{
-  background-color: lightblue;
+  /* background-color: lightblue; */
   border-radius: 5px;
   padding: 5px;
+  box-sizing: border-box;
+}
+.info{
+  border-right: 1px solid #c6c7c8;
+  padding-right: 5px;
+}
+.cardContainer{
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding: 5px;
+}
+.custom-row {
+  row-gap: 20px; /* Vertical space between rows */
+  column-gap: 20px; /* Horizontal space between columns */
+}
+.userInfo p{
+  font-size: 14px;
+  text-wrap: balance;
+  padding: 5px 13px;
+  word-wrap: break-word;      /* For older browsers */
+  overflow-wrap: break-word;  /* For modern browsers */
+  white-space: normal;        /* Ensure wrapping */
+  width: 100%;                /* Ensure it takes full width */
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 20px;
+}
+.profilepic{
+  width: 100%;
 }

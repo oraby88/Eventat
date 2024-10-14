@@ -1,24 +1,38 @@
 @if (contentReady) { <app-loading></app-loading>}
-<div class="container mt-4" style="margin-bottom: 10px;">
-  <div class="text-center">
+<div class="mt-4 d-flex flex-column flex-sm-row p-2" style="margin-bottom: 10px">
+  <div class="text-center col-12 col-sm-3 info">
+    <img class="profilepic" src="../../../assets/Frameboy.png" alt="" />
     <h3>Welcome {{ name }}</h3>
-    <h3>Email: {{ email }}</h3>
+    <div class="userInfo">
+      <p>Email: {{ email }}</p>
+    </div>
   </div>
 
-  <div>
-    <div class="container mt-4">
-      <h1 class="text-center">Your QR Codes List</h1>
-      <div class="row gap-3 text-center justify-content-center">
+  <div class="col-12 col-sm-9">
+    <div class="container-fluid mt-4">
+      <h1 class="text-center mb-4">Your QR Codes List</h1>
+      <div class="row text-center justify-content-center">
         @for (qr of qrData; track qr) {
-        <div class="card col-3 gap-3 p-2">
-          <div class="card-body p-2 text-center">
-            <img src="{{qr.qrcode_url}}" alt="" class="" style="width: 70px;height: 70px;">
+
+        <div class="col-12 col-sm-6 col-md-4 pt-2">
+          <div class="cardContainer">
+            <div class="row justify-content-center">
+              <div class="p-2 text-center m-2">
+                <img
+                  src="{{ qr }}"
+                  alt=""
+                  class=""
+                  style="width: 70px; height: 70px"
+                />
+              </div>
+              <button (click)="getIamge(qr)" class="btn btn-primary" style="width: 90%;text-align: center;">
+                Download
+              </button>
+            </div>
           </div>
-          <button (click)="getIamge(qr)" class="btn btn-primary">Download</button>
         </div>
         }
       </div>
     </div>
   </div>
-
 </div>

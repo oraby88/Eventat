@@ -28,13 +28,13 @@ export class ProfileComponent implements OnInit {
     this._profileService.getUser().subscribe({
       next: (res) => {
         this.contentReady = false;
-        this.userData = res.data[0].user;
+        this.userData = res.user;
         console.log(res);
         this.name = this.userData.name;
         // this.id = this.userData.id;
         this.email = this.userData.email;
         // console.log(res.data[0].qrcode);
-        this.qrData = res.data[0].qrcode;
+        this.qrData = res.data[0].qr_code_urls;
       },
       error: (err) =>{
         this.contentReady = false;
