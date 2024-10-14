@@ -99,14 +99,14 @@ export class QrScanComponent implements OnInit, AfterViewInit {
     this._homeService.getQR(eventId).subscribe({
       next: (res) => {
         console.log(res);
-        this.name = res.data.name_en;
-        this.location = res.data.location;
-        this.date = res.data.date;
-        this.type = res.data.type;
-        this.time = res.data.time;
-        this.multi_use = res.data.multi_use;
-        this.qrCodes = res.data;
-        this.allItems = res.data.qr_code_urls;
+        this.name = res.event.name_en;
+        this.location = res.event.location;
+        this.date = res.event.date;
+        this.type = res.event.type;
+        this.time = res.event.time;
+        this.multi_use = res.event.multi_use;
+        this.qrCodes = res.qr_code_urls;
+        this.allItems = res.qr_code_urls;
         // this.qr_code_urls = res.data.qr_code_urls;
         this.updateDisplayedItems();
       },

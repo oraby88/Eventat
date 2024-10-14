@@ -131,7 +131,7 @@ h5 {
   cursor: pointer;
 }
 .nav-item a {
-  color: #6bb88c;
+  color: blue;
   font-weight: 400;
   font-size: 16px;
 }
@@ -163,5 +163,6 @@ h5 {
 
 .eventat{
   text-decoration: none;
-  color: #6bb88c;
+  color: blue;
+  font-weight: bold;
 }

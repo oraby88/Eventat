@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
     this._profileService.getUser().subscribe({
       next: (res) => {
         this.contentReady = false;
-        this.userData = res.data[0].event.user;
+        this.userData = res.user;
         console.log(res);
         // this.name = this.userData.name;
         // this.id = this.userData.id;

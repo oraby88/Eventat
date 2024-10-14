@@ -9,7 +9,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
   standalone: true,
   imports: [RouterModule, LoadingComponent, MatPaginator],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   qrData: any;
@@ -22,20 +22,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
   pageSize = 5;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private _homeService: HomeService, private router: Router) { }
+  constructor(private _homeService: HomeService, private router: Router) {}
   ngAfterViewInit(): void {
     this.paginator.page.subscribe(() => this.updateDisplayedItems());
   }
   ngOnInit(): void {
     this.contentReady = true;
+    let sum = this.plusMinus([
+        [8],
+        [1, 2, 3, -1, -2, -3, 0, 0]
+      ]);
+    console.log(sum);
+
     this.getData();
     if (typeof window !== 'undefined' && localStorage) {
-      let token = localStorage.getItem("token");
+      let token = localStorage.getItem('token');
 
       if (token) {
         this.isLogedout = false;
-      }
-      else {
+      } else {
         this.isLogedout = true;
       }
     }
@@ -61,11 +66,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
       error: (error) => {
         this.contentReady = false;
         console.error('Error:', error);
-      }
-    })
+      },
+    });
   }
 
-  goToQrCode(id:any){
+  goToQrCode(id: any) {
     this.router.navigate(['/qr-sacn', id]);
   }
   // getQrCode(id: any, location: string,
@@ -90,11 +95,34 @@ export class HomeComponent implements OnInit, AfterViewInit {
   //   }
   // }
   logout() {
-    console.log("loged out");
+    console.log('loged out');
     localStorage.removeItem('token');
     // window.location.reload();
     this.isLogedout = true;
     this.getData();
   }
 
+  plusMinus(arr: any) {
+    let n = arr[0];
+    let arrNew = arr[1];
+    console.log(arrNew);
+    let positivesNum = 0;
+    let nagativesNum = 0;
+    let zerosNum = 0;
+    for (let i = 0; i < n; i++) {
+      if (arrNew[i] > 0) {
+        positivesNum += 1;
+      } else if (arrNew[i] < 0) {
+        nagativesNum += 1;
+      } else if(arrNew[i] == 0){
+        zerosNum += 1;
+      }
+    }
+    let positivesSum = (positivesNum / n).toFixed(6);
+    let nagativesSum = (nagativesNum / n).toFixed(6);
+    let zerosSum = (zerosNum / n).toFixed(6);
+
+
+    return [positivesSum, nagativesSum, zerosSum];
+  }
 }

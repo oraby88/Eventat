@@ -3,9 +3,16 @@
   padding: 0px 20px;
   border: 0;
   border-radius: 3px;
-  background-color: blue;
+  background-color: lightseagreen;
   color: white;
 }
 .scan:hover{
-  background-color: rgb(173, 240, 106);
+  background-color: blue;
+}
+.cardContainer{
+  background-color: lavender;
+  border-radius: 5px;
+}
+h1{
+  color: blue;
 }

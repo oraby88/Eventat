@@ -6,17 +6,19 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { QrScanComponent } from './components/qr-scan/qr-scan.component';
+import { authGuard } from './guards/auth.guard';
 import { QrcodescannerComponent } from './components/qrcodescanner/qrcodescanner.component';
 import { QrcodesinfoComponent } from './components/qrcodesinfo/qrcodesinfo.component';
 
 export const routes: Routes = [
-  {path:'home', component: HomeComponent},
+  {path:'home', component: HomeComponent, canActivate:[authGuard]},
   {path:'newEvent', component: NewEventComponent},
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'qrPage', component: QrReadingComponent},
   {path:'profile', component: ProfileComponent},
   {path:'qr-sacn/:id', component: QrScanComponent},
+  {path:'', redirectTo:'login', pathMatch:'full'},
   {path:'qrcodescanner', component: QrcodescannerComponent},
   {path:'info', component: QrcodesinfoComponent},
   {path:'', redirectTo:'login', pathMatch:'full'},

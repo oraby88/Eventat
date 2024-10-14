@@ -21,3 +21,4 @@ describe('QrcodesinfoComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
