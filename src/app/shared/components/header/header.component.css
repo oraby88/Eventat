@@ -6,6 +6,10 @@ ul {
   display: flex;
   gap: 20px;
 }
+.logo {
+  width: 100px !important;
+  height: 90px;
+}
 
 .imgtext {
   color: #262f95;

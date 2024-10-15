@@ -2,8 +2,8 @@
 <nav class="navbar shadow navbar-expand-md navbar-light bg-white">
   <div class="container-fluid align-items-center">
     <!-- Logo on the left -->
-    <a class="col-3 eventat" routerLink="/home">
-      Eventat
+    <a class="eventat" routerLink="/home">
+      <img src="../../../../assets/LOGO-.jpg" class="logo" alt="">
     </a>
     <!-- Burger button for smaller screens -->
     <button
@@ -17,7 +17,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Navbar content -->
-    <div class="collapse navbar-collapse col-9 justify-content-between" id="navbarNav" #navbarNav>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav" #navbarNav>
       <!-- Centered links -->
       <ul
         class="navbar-nav mx-auto col-12 col-md-6 justify-content-center"
@@ -42,7 +42,23 @@
               class="text-decoration-none nav-link"
               routerLink="/newEvent"
               routerLinkActive="active"
-              >New Event</a
+              >New&nbsp;Event</a
+            >
+          </li>
+          <li class="nav-item" routerLink="/qrcodescanner">
+            <a
+              class="text-decoration-none nav-link"
+              routerLink="/qrcodescanner"
+              routerLinkActive="active"
+              >Scanner</a
+            >
+          </li>
+          <li class="nav-item" routerLink="/info">
+            <a
+              class="text-decoration-none nav-link"
+              routerLink="/info"
+              routerLinkActive="active"
+              >Info</a
             >
           </li>
 
@@ -59,7 +75,7 @@
       }
         @if (tokenExists) {
         <li class="nav-item" routerLink="/home" (click)="logout()">
-          <a class="text-decoration-none nav-link">Log out</a>
+          <a class="text-decoration-none nav-link">Log&nbsp;out</a>
         </li>
       }
 
