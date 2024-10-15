@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../shared/services/home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qrcodesinfo',
@@ -17,7 +18,7 @@ export class QrcodesinfoComponent implements OnInit {
   multi_use!: number;
 
   eventData: any;
-  ticketsType = ['Gold', 'Blue', 'Green'];
+  ticketsType = ['Gold', '#3a64f8', 'Green'];
   qrCodes: any;
   qrResult: string | null = null;
   scannerEnabled = false;
@@ -26,9 +27,10 @@ export class QrcodesinfoComponent implements OnInit {
 
   allItems: any[] = [];
 
-  constructor(private _homeService:HomeService){}
+  constructor(private _homeService:HomeService,private router: Router){}
   ngOnInit(): void {
-    this._homeService.getQR(1).subscribe({
+
+    this._homeService.getQR(this.extractNumber(this.router.url)).subscribe({
       next: (res) => {
         console.log(res);
         this.name = res.event.name_en;
@@ -45,6 +47,12 @@ export class QrcodesinfoComponent implements OnInit {
       },
     });
   }
-
-
+   getQueryString(url: string): string {
+    const parts = url.split('?');
+    return parts.length > 1 ? parts[1] : '';
+  }
+   extractNumber(url: string): string | null {
+    const match = url.match(/event_(\d+)_qr/);
+    return match ? match[1] : null;
+  }
 }

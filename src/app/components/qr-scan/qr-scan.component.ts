@@ -48,7 +48,7 @@ export class QrScanComponent implements OnInit, AfterViewInit {
   eventForm!: FormGroup;
   eventData: any;
   data!: FormGroup;
-  ticketsType = ['Gold', 'Blue', 'Green'];
+  ticketsType = ['Gold', '#3a64f8', 'Green'];
   qrCodes: any;
   qrResult: string | null = null;
   scannerEnabled = false;

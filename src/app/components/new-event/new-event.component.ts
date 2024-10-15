@@ -36,7 +36,7 @@ export class NewEventComponent implements OnInit {
     this.initiate()
   }
 
-  ticketsType = ['Gold', 'Blue', 'Green'];
+  ticketsType = ['Gold', '#3a64f8', 'Green'];
 
   initiate() {
     this.eventForm = this._formBuilder.group({

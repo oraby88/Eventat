@@ -115,7 +115,7 @@ button {
   font-weight: 500;
 }
 .rigisterLinkContainer a{
-  color: blue;
+  color: #3a64f8;
 }
 .info {
   top: 10px;
@@ -127,7 +127,7 @@ button {
   outline: 1px solid red;
 }
 .is-valid:focus {
-  outline: 1px solid blue;
+  outline: 1px solid #3a64f8;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -141,7 +141,7 @@ input[type=number]::-webkit-outer-spin-button {
 .hidePasswordBtn{
   background-color: transparent;
   border: 0;
-  color: blue;
+  color: #3a64f8;
   float: inline-end;
   font-weight: 500;
   padding: 0;
