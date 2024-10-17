@@ -10,7 +10,7 @@ export class NewEventService {
   constructor(private http: HttpClient) { }
 
   sendEventData(eventDate: FormData): Observable<any> {
-    return this.http.post('http://eventbackend.eyegorithm.com/api/event',
+    return this.http.post('https://eventbackend.eyegorithm.com/api/event',
       eventDate
     )
   }

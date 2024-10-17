@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { ScannerIneModule } from 'ngx-scanner';
 @Component({
   selector: 'app-qrcodescanner',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './qrcodescanner.component.html',
   styleUrl: './qrcodescanner.component.css'
 })
-export class QrcodescannerComponent {
 
+export class QrcodescannerComponent {
+  tokenExists!: boolean;
 }

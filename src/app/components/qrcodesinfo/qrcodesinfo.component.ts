@@ -16,7 +16,7 @@ export class QrcodesinfoComponent implements OnInit {
   type!: string;
   time!: string;
   multi_use!: number;
-
+  tokenExists!: boolean;
   eventData: any;
   ticketsType = ['Gold', '#3a64f8', 'Green'];
   qrCodes: any;

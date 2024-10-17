@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { QrReadingComponent } from './components/qr-reading/qr-reading.component';
 import { NewEventComponent } from './components/new-event/new-event.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
@@ -9,6 +9,8 @@ import { QrScanComponent } from './components/qr-scan/qr-scan.component';
 import { authGuard } from './guards/auth.guard';
 import { QrcodescannerComponent } from './components/qrcodescanner/qrcodescanner.component';
 import { QrcodesinfoComponent } from './components/qrcodesinfo/qrcodesinfo.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
   {path:'home', component: HomeComponent, canActivate:[authGuard]},
@@ -25,3 +27,10 @@ export const routes: Routes = [
   {path:'info', component: QrcodesinfoComponent},
   {path:'', redirectTo:'login', pathMatch:'full'},
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}

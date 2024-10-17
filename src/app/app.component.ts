@@ -5,7 +5,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from "./shared/components/header/header.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { AuthService } from './shared/services/auth/auth.service';
-
+import { AppRoutingModule } from './app-routing.module';
+import { ScannerIneModule } from 'ngx-scanner';
 @Component({
   selector: 'app-root',
   standalone: true,

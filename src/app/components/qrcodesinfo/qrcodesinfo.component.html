@@ -1,4 +1,8 @@
-<div class="container mt-4">
+@if (tokenExists) {
+  <h1 class="text-center">Thank You</h1>
+}
+@else{
+  <div class="container mt-4">
     <h1 class="text-center">Event Info</h1>
     <div>
       <p>Event Name: {{ name }}</p>
@@ -14,4 +18,5 @@
     </div>
   </div>
 
+}
 
