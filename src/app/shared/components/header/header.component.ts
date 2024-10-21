@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { RouterModule } from '@angular/router';
 
@@ -9,12 +9,30 @@ import { RouterModule } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('navbarNav') navbarNav!: ElementRef;
   tokenExists!: boolean;
 
   constructor(private _authService:AuthService){}
   ngOnInit(): void {
     this.checkForToken();
+  }
+
+  ngAfterViewInit() {
+    const navLinks = this.navbarNav.nativeElement.querySelectorAll('.nav-item');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    navLinks.forEach((link: HTMLElement) => {
+      link.addEventListener('click', () => {
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+          const navbarToggler = document.querySelector(
+            '.navbar-toggler'
+          ) as HTMLElement;
+          navbarToggler.click(); // This will trigger the collapse
+        }
+      });
+    });
   }
 
   checkForToken() {

@@ -14,7 +14,7 @@
     <div class="container mt-4">
       <h1 class="text-center">Events List</h1>
       <div class="row gap-3 justify-content-between mb-4">
-        @for (qr of displayedItems; track qr) {
+        @if (dataIsHere) { @for (qr of displayedItems; track qr) {
         <div class="d-flex col-12 gap-3 p-2 cardContainer">
           <div class="card-body align-content-center">
             <h5 class="">{{ qr.event.name_en }}</h5>
@@ -25,8 +25,14 @@
             Show QR Codes
           </button>
         </div>
+        }} @else{
+        <div class="text-center">
+          <h3 class="text-center">No Data Avaliable</h3>
+          <img src="../../../assets/nodata.png" alt="no data avaliable" class="text-center" />
+        </div>
         }
       </div>
+      @if(dataIsHere){
       <mat-paginator
         [length]="allItems.length"
         [pageSize]="pageSize"
@@ -36,6 +42,7 @@
         aria-label="Select page"
       >
       </mat-paginator>
+    }
     </div>
   </div>
 </div>
