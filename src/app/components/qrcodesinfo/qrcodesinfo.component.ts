@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../shared/services/home.service';
-
+import { Router } from '@angular/router';
+import { AuthService } from '../../shared/services/auth/auth.service';
 @Component({
   selector: 'app-qrcodesinfo',
   standalone: true,
@@ -15,9 +16,9 @@ export class QrcodesinfoComponent implements OnInit {
   type!: string;
   time!: string;
   multi_use!: number;
-
+  tokenExists!: boolean;
   eventData: any;
-  ticketsType = ['Gold', 'Blue', 'Green'];
+  ticketsType = ['VIP', 'blue', 'Green'];
   qrCodes: any;
   qrResult: string | null = null;
   scannerEnabled = false;
@@ -26,9 +27,14 @@ export class QrcodesinfoComponent implements OnInit {
 
   allItems: any[] = [];
 
-  constructor(private _homeService:HomeService){}
+  constructor(private _homeService:HomeService,private _authService:AuthService,private router: Router){}
   ngOnInit(): void {
-    this._homeService.getQR(1).subscribe({
+    this.checkForToken();
+if(this.extractNumber(this.router.url) == "58" && this.tokenExists == false){
+
+  window.location.href = 'https://eyegorithm.com/elmahrgan';
+}
+    this._homeService.getQR(this.extractNumber(this.router.url)).subscribe({
       next: (res) => {
         console.log(res);
         this.name = res.event.name_en;
@@ -45,6 +51,18 @@ export class QrcodesinfoComponent implements OnInit {
       },
     });
   }
-
-
+  checkForToken() {
+    this._authService.token$.subscribe((token) => {
+      // Update the tokenExists flag based on the token presence
+      this.tokenExists = token != null;
+    });
+  }
+   getQueryString(url: string): string {
+    const parts = url.split('?');
+    return parts.length > 1 ? parts[1] : '';
+  }
+   extractNumber(url: string): string | null {
+    const match = url.match(/event_(\d+)_qr/);
+    return match ? match[1] : null;
+  }
 }
