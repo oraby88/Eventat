@@ -1,8 +1,15 @@
 @if (tokenExists) {
+  <br>
   <h1 class="text-center">Thank You</h1>
+  <br>
+  <a
+     class="text-decoration-none nav-link"
+     routerLink="/qrcodescanner"
+     >New Scan</a
+>
 }
 @else{
-  <div class="container mt-4">
+  <div class="container mt-4" [className]="multi_use"]>
     <h1 class="text-center">Event Info</h1>
     <div>
       <p>Event Name: {{ name }}</p>
