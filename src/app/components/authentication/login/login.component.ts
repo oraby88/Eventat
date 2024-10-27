@@ -1,19 +1,31 @@
 // declare var google: any;
 // declare var FB: any;
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LoginService } from '../../../shared/services/auth/login.service';
-import { LoadingComponent } from "../../../shared/components/loading/loading.component";
+import { LoadingComponent } from '../../../shared/components/loading/loading.component';
 import { AuthService } from '../../../shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, LoadingComponent, FormsModule, LoadingComponent, RouterModule],
+  imports: [
+    ReactiveFormsModule,
+    LoadingComponent,
+    FormsModule,
+    LoadingComponent,
+    RouterModule,
+  ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   person!: FormGroup;
@@ -23,6 +35,7 @@ export class LoginComponent {
   userName!: string;
   userInfo: any;
   googleResponse: any;
+  tokenExists!: boolean;
   constructor(
     private _FormBuilder: FormBuilder,
     private _authService: AuthService,
@@ -56,6 +69,11 @@ export class LoginComponent {
     //   });
     //   FB.AppEvents.logPageView();
     // };
+
+    this.checkForToken();
+    if (this.tokenExists) {
+      this._Router.navigateByUrl('/home');
+    }
   }
   initiate() {
     this.person = this._FormBuilder.group({
@@ -63,6 +81,14 @@ export class LoginComponent {
       password: ['', Validators.required],
     });
   }
+
+  checkForToken() {
+    this._authService.token$.subscribe((token) => {
+      // Update the tokenExists flag based on the token presence
+      this.tokenExists = token != null;
+    });
+  }
+
   // login() {
   //   FB.login((result: any) => {
   //     if (result.authResponse) {
@@ -144,7 +170,7 @@ export class LoginComponent {
         });
         console.log(res);
         this._authService.setToken(res.token);
-        localStorage.setItem("id",res.user.id);
+        localStorage.setItem('id', res.user.id);
         this._Router.navigate(['/home']);
       },
       error: (err) => {

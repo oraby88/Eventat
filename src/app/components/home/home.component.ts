@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   allItems: any[] = [];
   displayedItems: any[] = [];
   pageSize = 5;
+  dataIsHere: boolean = true;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private _homeService: HomeService, private router: Router) {}
@@ -53,6 +54,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this._homeService.getEventsList().subscribe({
       next: (response) => {
         this.contentReady = false;
+        this.dataIsHere = true;
         console.log(response);
         this.qrData = response.data;
         this.allItems = response.data;
@@ -61,6 +63,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
       },
       error: (error) => {
         this.contentReady = false;
+        this.dataIsHere = false;
+        console.log(this.dataIsHere);
+        
         console.error('Error:', error);
       },
     });
