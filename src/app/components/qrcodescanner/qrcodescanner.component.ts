@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ScannerIneModule } from 'ngx-scanner';
+// import { ScannerIneModule } from 'ngx-scanner';
 @Component({
   selector: 'app-qrcodescanner',
   standalone: true,

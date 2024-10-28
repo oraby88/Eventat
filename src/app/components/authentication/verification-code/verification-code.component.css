@@ -1,0 +1,62 @@
+.card-img {
+    width: 150px;
+  }
+  @media screen and (max-width: 600px) {
+    .card-img {
+      width: 100px;
+    }
+  }
+  
+  h3 {
+    font-size: 16px;
+    text-align: center;
+    color: darkblue;
+  }
+  .input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    text-align: center;
+  }
+  
+  .is-invalid1 {
+    outline: 2px solid red;
+  }
+  .invalid-feedback {
+    color: red;
+  }
+  .is-valid {
+    outline: 2px solid #48b29a !important;
+  }
+  .is-untouched {
+    outline: 1px solid lightgray;
+  }
+  
+  .accont {
+    font-weight: bold;
+    background-color: blue;
+  }
+  
+  .fromsave {
+    display: flex;
+    width: 100%;
+    margin-top: 3px;
+    font-size: larger;
+    border-radius: 7px;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    padding: 10px 0;
+  }
+  
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  
