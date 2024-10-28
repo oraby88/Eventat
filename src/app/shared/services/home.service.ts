@@ -23,4 +23,10 @@ export class HomeService {
   ): Observable<any> {
     return this.http.get(`${environment.Server_URL}/event/${id}`);
   }
+  scan(event: any): Observable<any> {
+    return this.http.post(`${environment.Server_URL}/scan-qr-code`, event);
+  }
+
 }
+
+
