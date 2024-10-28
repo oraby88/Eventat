@@ -1,0 +1,110 @@
+
+<app-loading *ngIf="contentReady"></app-loading>
+<div class="container" style="height: 100vh">
+  <div
+    class="container d-flex justify-content-center align-items-center mt-4 col-lg-6 col-md-8 col-sm-12"
+  >
+    <div>
+      <h2 class="fw-bold text-center">Enter the Verification Code</h2>
+      <form
+        action=""
+        class="mb-4"
+        [formGroup]="formVerification"
+        (ngSubmit)="verificationSubmit()"
+      >
+        <div class="d-flex gap-2 mb-4">
+          <input
+            type="text"
+            class="input"
+            formControlName="verificationCode1"
+            maxlength="1"
+            #verificationCode1
+            (input)="moveFocus(verificationCode1 , verificationCode2)"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            [(ngModel)]="str1"
+            [ngClass]="{
+              'is-invalid1':
+              (formVerification.controls.verificationCode1.touched &&
+              formVerification.controls.verificationCode1.errors) || errorExist ,
+              'is-valid':
+              formVerification.controls.verificationCode1.touched &&
+              formVerification.controls.verificationCode1.errors == null && !errorExist,
+              'is-touched':
+              formVerification.controls.verificationCode1.untouched &&
+              formVerification.controls.verificationCode1.errors == null,
+          }"
+          />
+          <input
+            type="text"
+            class="input"
+            formControlName="verificationCode2"
+            maxlength="1"
+            #verificationCode2
+            (input)="moveFocus(verificationCode2 , verificationCode3)"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            [(ngModel)]="str2"
+            [ngClass]="{
+              'is-invalid1':
+              (formVerification.controls.verificationCode2.touched &&
+              formVerification.controls.verificationCode2.errors) || errorExist ,
+              'is-valid':
+              formVerification.controls.verificationCode2.touched &&
+              formVerification.controls.verificationCode2.errors == null && !errorExist,
+              'is-touched':
+              formVerification.controls.verificationCode2.untouched &&
+              formVerification.controls.verificationCode2.errors == null,
+          }"
+          />
+          <input
+            type="text"
+            class="input"
+            formControlName="verificationCode3"
+            maxlength="1"
+            #verificationCode3
+            (input)="moveFocus(verificationCode3 , verificationCode4)"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            [(ngModel)]="str3"
+            [ngClass]="{
+              'is-invalid1':
+              (formVerification.controls.verificationCode3.touched &&
+              formVerification.controls.verificationCode2.errors) || errorExist ,
+              'is-valid':
+              formVerification.controls.verificationCode3.touched &&
+              formVerification.controls.verificationCode3.errors == null && !errorExist,
+              'is-touched':
+              formVerification.controls.verificationCode3.untouched &&
+              formVerification.controls.verificationCode3.errors == null,
+          }"
+          />
+          <input
+            type="text"
+            class="input"
+            formControlName="verificationCode4"
+            maxlength="1"
+            #verificationCode4
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            [(ngModel)]="str4"
+            [ngClass]="{
+              'is-invalid1':
+              (formVerification.controls.verificationCode4.touched &&
+              formVerification.controls.verificationCode2.errors) || errorExist ,
+              'is-valid':
+              formVerification.controls.verificationCode4.touched &&
+              formVerification.controls.verificationCode4.errors == null && !errorExist,
+              'is-touched':
+              formVerification.controls.verificationCode4.untouched &&
+              formVerification.controls.verificationCode4.errors == null,
+          }"
+          />
+        </div>
+        <button type="submit" class="fromsave accont">
+          <a class="text-decoration-none text-white">Registering</a>
+        </button>
+        <!-- <button class="fromsave accont">
+          <a class="text-decoration-none text-white">skip</a>
+        </button> -->
+      </form>
+    </div>
+  </div>
+</div>
+

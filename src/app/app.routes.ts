@@ -9,6 +9,8 @@ import { QrScanComponent } from './components/qr-scan/qr-scan.component';
 import { authGuard } from './guards/auth.guard';
 import { QrcodescannerComponent } from './components/qrcodescanner/qrcodescanner.component';
 import { QrcodesinfoComponent } from './components/qrcodesinfo/qrcodesinfo.component';
+import { VerificationCodeComponent } from './components/authentication/verification-code/verification-code.component';
+import { ForgetPasswordComponent } from './components/authentication/forget-password/forget-password.component';
 
 export const routes: Routes = [
   {path:'home', component: HomeComponent, canActivate:[authGuard]},
@@ -20,5 +22,7 @@ export const routes: Routes = [
   {path:'qr-sacn/:id', component: QrScanComponent},
   {path:'qrcodescanner', component: QrcodescannerComponent},
   {path:'info', component: QrcodesinfoComponent},
+  {path:'verificationCode', component: VerificationCodeComponent},
+  {path:'forgetpassword', component: ForgetPasswordComponent},
   {path:'', redirectTo:'login', pathMatch:'full'},
 ];

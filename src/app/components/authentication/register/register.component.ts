@@ -166,12 +166,12 @@ export class RegisterComponent implements OnInit {
         });
         console.log(res);
         console.log(this.formInfo.value);
-        this._authService.setToken(res.token);
-        this._Router.navigate(['/home']);
+        // this._authService.setToken(res.token);
+        this._Router.navigate(['/verificationCode']);
       },
       error: (err) => {
         this.contentReady = false;
-        console.log('there is an error');
+        console.log(err);
         Swal.fire({
           icon: 'error',
           title: 'فشل تسجيل البيانات',
